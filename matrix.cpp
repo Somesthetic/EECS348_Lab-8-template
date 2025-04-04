@@ -99,15 +99,11 @@ void Matrix::swap_rows(std::size_t r1, std::size_t r2){;
   }
 }
 
-
-
-
-
+void Matrix::swap_cols(std::size_t c1, std::size_t c2){;
+  std::vector<int> temp_column;
+  for (int i = 0; i < size; i++){;
+    temp_column[i] = get_value(i, c1);  // get the value about to be deleted
+    set_value(i, c1, get_value(i, c2));  // replaces the c1 value
+    set_value(i, c2, temp_column[i]);  // replaces the c2 value with the c1 one
+  }
 }
-
-
-
-
-
-
-
