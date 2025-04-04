@@ -64,15 +64,48 @@ Matrix Matrix::operator + (const Matrix &rhs) const{;
 
 Matrix Matrix::operator*(const Matrix &rhs) const{;
   Matrix output(size);
-  for (int i = 0; i < size; ++i) {           // Iterate over rows of mat1
-    for (int j = 0; j < size; ++j) {       // Iterate over columns of mat2
-      for (int k = 0; k < size; ++k) {   // Iterate over row elements of mat1 and column elements of mat2
+  for (int i = 0; i < size; i++) {           // Iterate over rows of mat1
+    for (int j = 0; j < size; j++) {       // Iterate over columns of mat2
+      for (int k = 0; k < size; k++) {   // Iterate over row elements of mat1 and column elements of mat2
          output.set_value(i,j,(get_value(i,j) * rhs.get_value(j,i))+output.get_value(i,j));
       }
     }
   }
   return output;
 }
+
+int Matrix::sum_diagonal_major() const{;
+  int sum = 0;
+  for (int i = 0; i < size; i++){;
+    sum += get_value(i,i);
+  }
+  return sum;
+}
+
+int Matrix::sum_diagonal_minor() const{;
+  int sum = 0;
+  for (int i = 0; i < size; i++){;
+    sum += get_value(i,size-1-i);
+  }
+  return sum;
+}
+
+void Matrix::swap_rows(std::size_t r1, std::size_t r2){;
+  std::vector temp_row = the_data[r1];
+  for (int j = 0; j < size; j++){;
+    set_value(r1, j, the_data[r2][j]);  // setting the r1 variables
+  } for (int j = 0; j < size; j++){;
+    set_value(r2, j, temp_row[j]);
+  }
+}
+
+
+
+
+
+}
+
+
 
 
 
