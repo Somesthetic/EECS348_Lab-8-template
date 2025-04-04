@@ -5,10 +5,9 @@
 #include <vector>
 
 class Matrix {
-public:  // adding this comment here as a test
-    Matrix(std::size_t N);
-    Matrix(std::vector<std::vector<int>> nums);
-
+public:
+    Matrix(std::size_t N);  // will run this if the input is a int
+    Matrix(std::vector<std::vector<int>> nums);  // will run this if input is a vector of vectors of ints
     Matrix operator+(const Matrix &rhs) const;
     Matrix operator*(const Matrix &rhs) const;
     void set_value(std::size_t i, std::size_t j, int n);
@@ -19,6 +18,9 @@ public:  // adding this comment here as a test
     void swap_rows(std::size_t r1, std::size_t r2);
     void swap_cols(std::size_t c1, std::size_t c2);
     void print_matrix() const;
+private:
+  std::vector<std::vector<int>> the_data;  // defines a private member variable, aka the vector of vectors of ints
+  std::size_t size;  // defines a private member variable, size
 };
 
 #endif // __MATRIX_HPP__
