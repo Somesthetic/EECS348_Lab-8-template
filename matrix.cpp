@@ -43,4 +43,38 @@ int Matrix::get_size() const{
   return size;  // Used to still have access to size without making it public
 }
 
+int Matrix::get_value(std::size_t i, std::size_t j) const{;
+  return the_data[i][j];
+}
+
+void Matrix::set_value(std::size_t i, std::size_t j, int n){;
+  the_data[i][j] = n;  // returns val at that coord
+  return;
+}
+
+Matrix Matrix::operator + (const Matrix &rhs) const{;
+  Matrix output(size);
+  for (int i = 0; i <= size-1; i++){;
+    for (int j = 0; j <= size-1; j++){;
+      output.set_value(i,j, get_value(i,j) + rhs.get_value(i,j));
+    }
+  }
+  return output;
+}
+
+Matrix Matrix::operator*(const Matrix &rhs) const{;
+  Matrix output(size);
+  for (int i = 0; i < size; ++i) {           // Iterate over rows of mat1
+    for (int j = 0; j < size; ++j) {       // Iterate over columns of mat2
+      for (int k = 0; k < size; ++k) {   // Iterate over row elements of mat1 and column elements of mat2
+         output.set_value(i,j,(get_value(i,j) * rhs.get_value(j,i))+output.get_value(i,j));
+      }
+    }
+  }
+  return output;
+}
+
+
+
+
 
