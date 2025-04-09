@@ -7,10 +7,11 @@
 // the class name and "::"
 
 // e.g. for the constructor:
+template <class T>
 
-Matrix::Matrix(size_t N) {
+Matrix<T>::Matrix(size_t N) {
   for (int row = 0; row <= size-1; row++){
-    std::vector<int> new_row;
+    std::vector<T> new_row;
     for (int column = 0; column <= size-1; column++){
       new_row.push_back(0);  // adds zero to the end of the column
     }
@@ -18,7 +19,7 @@ Matrix::Matrix(size_t N) {
   }
 }
 
-Matrix::Matrix(std::vector<std::vector<int>> nums){;
+Matrix<T>::Matrix(std::vector<std::vector<int>> nums){;
   size = nums.size();
   for (int row = 0; row <= size-1; row++){
     std::vector<int> new_row;
