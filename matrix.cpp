@@ -7,11 +7,11 @@
 // the class name and "::"
 
 // e.g. for the constructor:
-template <class T>
 
-Matrix<T>::Matrix(size_t N) {
+
+Matrix::Matrix(int N) {
   for (int row = 0; row <= size-1; row++){
-    std::vector<T> new_row;
+    std::vector<int> new_row;
     for (int column = 0; column <= size-1; column++){
       new_row.push_back(0);  // adds zero to the end of the column
     }
@@ -19,7 +19,7 @@ Matrix<T>::Matrix(size_t N) {
   }
 }
 
-Matrix<T>::Matrix(std::vector<std::vector<int>> nums){;
+Matrix::Matrix(std::vector<std::vector<int>> nums){;
   size = nums.size();
   for (int row = 0; row <= size-1; row++){
     std::vector<int> new_row;
@@ -44,11 +44,11 @@ int Matrix::get_size() const{
   return size;  // Used to still have access to size without making it public
 }
 
-int Matrix::get_value(std::size_t i, std::size_t j) const{;
+int Matrix::get_value(int i, int j) const{;
   return the_data[i][j];
 }
 
-void Matrix::set_value(std::size_t i, std::size_t j, int n){;
+void Matrix::set_value(int i, int j, int n){;
   the_data[i][j] = n;  // returns val at that coord
   return;
 }
@@ -91,7 +91,7 @@ int Matrix::sum_diagonal_minor() const{;
   return sum;
 }
 
-void Matrix::swap_rows(std::size_t r1, std::size_t r2){;
+void Matrix::swap_rows(int r1, int r2){;
   std::vector temp_row = the_data[r1];
   for (int j = 0; j < size; j++){;
     set_value(r1, j, the_data[r2][j]);  // setting the r1 variables
@@ -100,7 +100,7 @@ void Matrix::swap_rows(std::size_t r1, std::size_t r2){;
   }
 }
 
-void Matrix::swap_cols(std::size_t c1, std::size_t c2){;
+void Matrix::swap_cols(int c1, int c2){;
   std::vector<int> temp_column;
   for (int i = 0; i < size; i++){;
     temp_column[i] = get_value(i, c1);  // get the value about to be deleted
